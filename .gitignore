@@ -1,0 +1,5 @@
+sources/
+builds/**/images/*
+*.7z
+*.zip
+node_modules/
