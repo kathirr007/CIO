@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>services</title>
+  <meta charset="utf-8">
+  <meta name = "format-detection" content = "telephone=no" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!--   <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/touchTouch.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <!-- <script src="js/jquery.js"></script>
+  <script src="js/jquery-migrate-1.2.1.js"></script>
+  <script src="js/jquery.equalheights.js"></script>
+   <script src="js/jquery.tabs.js"></script>
+  <script src="js/isotope-docs.min.js"></script>
+  <script src="js/touchTouch.jquery.js"></script> -->
+    <script>
+    $(document).ready(function () {
+    $('.isotope .gall_item').touchTouch();
+    $("#tabs").tabs();
+      $(function () {
+        // init Isotope
+        var $container = $('.isotope').isotope({
+          itemSelector: '.element-item',
+          layoutMode: 'fitRows'
+        });
+        // filter functions
+        var filterFns = {
+          // show if number is greater than 50
+          numberGreaterThan50: function () {
+            var number = $(this).find('.number').text();
+            return parseInt(number, 10) > 50;
+          },
+          // show if name ends with -ium
+          ium: function () {
+            var name = $(this).find('.name').text();
+            return name.match(/ium$/);
+          }
+        };
+        // bind filter button click
+        $('#filters').on('click', 'button', function () {
+          var filterValue = $(this).attr('data-filter');
+          // use filterFn if matches value
+          filterValue = filterFns[ filterValue ] || filterValue;
+          $container.isotope({ filter: filterValue });
+        });
+        // change is-checked class on buttons
+        $('.button-group').each(function (i, buttonGroup) {
+          var $buttonGroup = $(buttonGroup);
+          $buttonGroup.on('click', 'button', function () {
+            $buttonGroup.find('.is-checked').removeClass('is-checked');
+            $(this).addClass('is-checked');
+          });
+        });
+      });
+    });
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <div id="ie6-alert" style="width: 100%; text-align:center;">
+    <img src="http://beatie6.frontcube.com/images/ie6.jpg" alt="Upgrade IE 6" width="640" height="344" border="0" usemap="#Map" longdesc="http://die6.frontcube.com" />
+    <map name="Map" id="Map"><area shape="rect" coords="496,201,604,329" href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank" alt="Download Interent Explorer" /><area shape="rect" coords="380,201,488,329" href="http://www.apple.com/safari/download/" target="_blank" alt="Download Apple Safari" /><area shape="rect" coords="268,202,376,330" href="http://www.opera.com/download/" target="_blank" alt="Download Opera" /><area shape="rect" coords="155,202,263,330" href="http://www.mozilla.com/" target="_blank" alt="Download Firefox" />
+      <area shape="rect" coords="35,201,143,329" href="http://www.google.com/chrome" target="_blank" alt="Download Google Chrome" />
+    </map>
+  </div>
+  <![endif]-->
+</head>
+
+<body>
+<!--========================================================
+                          HEADER
+=========================================================-->
+<header id="header">
+  <div id="stuck_container">
+    <div class="container">
+      <div class="row">
+      <div class="grid_12">
+        <h1 class="">
+          <a href="index.html">elementary school<br><span class="">
+            Here learning never ends</span></a>
+        </h1>
+          <nav>
+            <ul class="sf-menu">
+            <li><a href="index.html">Home</a>
+                <ul>
+                  <li><a href="#">About </a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Contact</a>
+                    <ul>
+                      <li><a href="#">About </a></li>
+                      <li><a href="#">News</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Blog</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                </li>
+              <li><a href="index-1.html">About</a></li>
+              <li class="current"><a href="index-2.html">Services</a></li>
+              <li><a href="index-3.html">gallery</a></li>
+              <li><a href="index-4.html">Blog</a></li>
+              <li><a href="index-5.html">Contact</a></li>
+            </ul>
+            <div class="clearfix"></div>
+          </nav>
+          </div>
+      </div>
+    </div>
+  </div> 
+</header>
+
+
+
+
+<!--========================================================
+                          CONTENT
+=========================================================-->
+<section id="content" class="page2">
+  <div class="wrapper">
+    <div class="container bord_1 perspective mar_t_65 pad_b_4">
+      <div class="row">
+        <div class="grid_12">
+          <div class="">
+            <div class="">
+              <h3>services</h3>
+            </div>
+            <div class="row">
+              <div class="grid_12">
+                <div id="filters" class="button-group s1">
+                  <button class="button is-checked" data-filter="*">show all</button>
+                  <button class="button" data-filter=".first">first category</button>
+                  <button class="button" data-filter=".second">second category</button>
+                  <button class="button" data-filter=".third">third category</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="isotope">
+                <div class="grid_12">
+                  <div class="row perspective">
+                    <div class="grid_4 element-item first s4" data-category="first">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big1.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic1.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                             Etiam lacinia feugiat libero, quis sodales metus po rta quis. Pro in maximus feugiat ipsum
+                          </span>
+                           Phasellrtsce scipitvarius mi. Cum sociistoque pentibus et magnis diarturtots nascetur rimulug maleada odiorbi dio gravida atcurus necuus a lorem. Maecenas tristiq <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item second s5" data-category="second">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big2.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic2.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                             Pro in maximus feugiat ipsuid rhoncus. Donecuis do lor eu est sagittis cursus sed eu ex
+                          </span>
+                           Cum sociistoque pentibus et magnis diarturtots nascetur rimulug maleada odiorbi dio gravida atcurus necuus a lorem. Maecenas tristiq ue ori ac sem. Duis ultrices <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item third s6" data-category="third">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big3.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic3.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                             Geugiat ipsum id rhoncus. Donec quis dolor eu estu sagittis cursus sed eu ex. Suspendis
+                          </span>
+                           Maecenas tristiq malesuada ornec sit amet eros. Lorem ipsum dolor sit amt consc tetuer aiing elit. Mauris fermentum tum magna. Sed laoreet aliquam leo. Ut te dolor <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item first s7" data-category="first">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big4.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic4.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                             Donec quis dolor eu est sagittis cursus sed eu dusp endisse bibendum dignissim
+                          </span>
+                           Lorem ipsum dolor sit amt consc tetuer aiing elit. Mauris ferment um tum magna. Sed laoreet aliquam leo. Ut te dolor dapbus eget elentu vel cursus eleifend elit  <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item second s8" data-category="second">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big5.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic5.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                            Suspendisse bibendum dignissim justo. Aliquam vest ibulum magna at iaculis eleifend
+                          </span>
+                           Mauris fermentum tum magna. Sed laoreet aliquam leo. Ut te dolor dapbus eget elentu vel cursus eleifend elit. Aenean auctor wrna. Aliqua volutpat. Duis ac turpis <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item third s9" data-category="third">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big6.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic6.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                             Dignissim justo. Aliquam vestibulum magna at iaculis eleifend. Sed mattis ligula
+                          </span>
+                           Sed laoreet aliquam leo. Ut te dolor dapbus eget elentu vel cursus eleifend elit. Aenean auctor wrna. Aliqua volutpat. Duis ac turpis. Integer rutrum ante eu lacuest um <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item first s10" data-category="first">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big7.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic7.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                            Apsum id rhoncus. Donec quis dolor eu estsagit cu rsus sed eu ex. Suspendisse bibend
+                          </span>
+                          liqua volutpat. Duis ac turpis. Integer rutrum ante eu lacuest um liberoisl porta vel sceleisque eget malesuada at neque. Vivam nibhus leo vel metus. Nulla facilisi <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item second s11" data-category="second">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big8.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic8.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                            Vestibulum vel ante nec erat fermentum varius. Cu rabitur tempus commodo velit
+                          </span>
+                           Duis ac turpis. Integer rutrum ante eu lacuest um liberoisl porta vel sceleisque eget malesuada at neque. Vivam nibhus leo vel metus. Nulla facilisi. Aenean nec eros <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid_4 element-item third s12" data-category="third">
+                      <div class="box9">
+                        <div class="gallery_image">                          
+                        <a href="images/p3_big9.jpg" class="gall_item pic_bord">
+                            <img src="images/p3_pic9.jpg" class='' alt=""/>
+                        </a>
+                        <p class="mar_t_25">
+                          <span class="">
+                            Curabitur tempus commodo velit, non commodo lib ero aliquam eu. Suspendisse hend
+                          </span>
+                           Vestibulum ante ipsum primis in faucibus orci luctus et trices pos uere cubilia Suspendisse sollicitudin velit sed leo pharetra augue nec augue. Nam elit magnandrerit   <a href="" class="a2">[ ... ]</a>
+                        </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="container bord_1 perspective mar_t_65 pad_b_8">
+           <h3 class=''>Our activities</h3>
+                <div id="tabs">
+              <div class="row">
+                <div class="grid_12">
+                  <ul class="tabs-list s14">
+                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
+                      <a href="#tabs-1">
+                        <div class="tab">
+                          learn
+                        </div>
+                      </a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.2s">
+                      <a href="#tabs-2">
+                        <div class="tab">
+                         play
+                        </div>
+                      </a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
+                      <a href="#tabs-3">
+                        <div class="tab">
+                          painting
+                        </div>
+                      </a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.4s">
+                      <a href="#tabs-4">
+                        <div class="tab">
+                         music
+                        </div>
+                      </a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                      <a href="#tabs-5">
+                        <div class="tab">
+                          sport
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="tabs-1"  class="s15">
+                <div class="row mar_t_2">
+                  <div class="grid_12">
+                    <div class="box6">
+                      <div class="row">
+                        <div class="grid_5">
+                         <div class="pic_bord">
+                           <img src="images/p3_pic10.jpg" alt=""/>
+                         </div>
+                        </div>
+                        <div class="grid_7">
+                          <p class="mar_t_25">
+                           <span class="">
+                             Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo
+                           </span>
+                           Suspendisse sollicitudin velit sed leo pharetra augue nec augue. Nam elit magnandrerit sit amet tincidunt ac viverra sed nulla. 
+                            Donec porta diam eu massa. Quisque diam lorem interdum vitaedapibus ac scelerisque vitae pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Proin ullamcorper urna et felis. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Etiam lacinia feugiat libero, quis sodales metus porta quis. Proin maximus feugiat ipsum id rhoncus. Donec quis dolor eu est sagittis cursus sed eu ex. Suspendisse bibendum dignissim justo. Aliquam vestibulum magna at iaculis eleifend. Sed mattis ligula et sem egestas rutrum. Vestibulum vel ante nec erat fermen<br><br>Curabitur tempus commodo velit, non commodo libero aliquam eu. Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo eu vel tortor. Pellentesque dui turpis, ornare at condimentum sit amet, interdum eget turpis. Praesent vitae ipsum maximus, tempus mauris ac, viverra enim. Nullam lorem lectus, venenatis sed porttitor at, cursus quis tellus
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-2">
+                <div class="row mar_t_2">
+                  <div class="grid_12">
+                    <div class="box6">
+                      <div class="row">
+                        <div class="grid_5">
+                         <div class="pic_bord">
+                           <img src="images/p3_pic11.jpg" alt=""/>
+                         </div>
+                        </div>
+                        <div class="grid_7">
+                          <p class="mar_t_25">
+                           <span class="">
+                             Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo
+                           </span>
+                           Suspendisse sollicitudin velit sed leo pharetra augue nec augue. Nam elit magnandrerit sit amet tincidunt ac viverra sed nulla. 
+                            Donec porta diam eu massa. Quisque diam lorem interdum vitaedapibus ac scelerisque vitae pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Proin ullamcorper urna et felis. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Etiam lacinia feugiat libero, quis sodales metus porta quis. Proin maximus feugiat ipsum id rhoncus. Donec quis dolor eu est sagittis cursus sed eu ex. Suspendisse bibendum dignissim justo. Aliquam vestibulum magna at iaculis eleifend. Sed mattis ligula et sem egestas rutrum. Vestibulum vel ante nec erat fermen<br><br>Curabitur tempus commodo velit, non commodo libero aliquam eu. Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo eu vel tortor. Pellentesque dui turpis, ornare at condimentum sit amet, interdum eget turpis. Praesent vitae ipsum maximus, tempus mauris ac, viverra enim. Nullam lorem lectus, venenatis sed porttitor at, cursus quis tellus
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-3">
+                <div class="row mar_t_2">
+                  <div class="grid_12">
+                    <div class="box6">
+                      <div class="row">
+                        <div class="grid_5">
+                         <div class="pic_bord">
+                           <img src="images/p3_pic12.jpg" alt=""/>
+                         </div>
+                        </div>
+                        <div class="grid_7">
+                          <p class="mar_t_25">
+                           <span class="">
+                             Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo
+                           </span>
+                           Suspendisse sollicitudin velit sed leo pharetra augue nec augue. Nam elit magnandrerit sit amet tincidunt ac viverra sed nulla. 
+                            Donec porta diam eu massa. Quisque diam lorem interdum vitaedapibus ac scelerisque vitae pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Proin ullamcorper urna et felis. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Etiam lacinia feugiat libero, quis sodales metus porta quis. Proin maximus feugiat ipsum id rhoncus. Donec quis dolor eu est sagittis cursus sed eu ex. Suspendisse bibendum dignissim justo. Aliquam vestibulum magna at iaculis eleifend. Sed mattis ligula et sem egestas rutrum. Vestibulum vel ante nec erat fermen<br><br>Curabitur tempus commodo velit, non commodo libero aliquam eu. Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo eu vel tortor. Pellentesque dui turpis, ornare at condimentum sit amet, interdum eget turpis. Praesent vitae ipsum maximus, tempus mauris ac, viverra enim. Nullam lorem lectus, venenatis sed porttitor at, cursus quis tellus
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-4">
+                <div class="row mar_t_2">
+                  <div class="grid_12">
+                    <div class="box6">
+                      <div class="row">
+                        <div class="grid_5">
+                         <div class="pic_bord">
+                           <img src="images/p3_pic13.jpg" alt=""/>
+                         </div>
+                        </div>
+                        <div class="grid_7">
+                          <p class="mar_t_25">
+                           <span class="">
+                             Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo
+                           </span>
+                           Suspendisse sollicitudin velit sed leo pharetra augue nec augue. Nam elit magnandrerit sit amet tincidunt ac viverra sed nulla. 
+                            Donec porta diam eu massa. Quisque diam lorem interdum vitaedapibus ac scelerisque vitae pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Proin ullamcorper urna et felis. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Etiam lacinia feugiat libero, quis sodales metus porta quis. Proin maximus feugiat ipsum id rhoncus. Donec quis dolor eu est sagittis cursus sed eu ex. Suspendisse bibendum dignissim justo. Aliquam vestibulum magna at iaculis eleifend. Sed mattis ligula et sem egestas rutrum. Vestibulum vel ante nec erat fermen<br><br>Curabitur tempus commodo velit, non commodo libero aliquam eu. Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo eu vel tortor. Pellentesque dui turpis, ornare at condimentum sit amet, interdum eget turpis. Praesent vitae ipsum maximus, tempus mauris ac, viverra enim. Nullam lorem lectus, venenatis sed porttitor at, cursus quis tellus
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-5">
+                <div class="row mar_t_2">
+                  <div class="grid_12">
+                    <div class="box6">
+                      <div class="row">
+                        <div class="grid_5">
+                         <div class="pic_bord">
+                           <img src="images/p3_pic14.jpg" alt=""/>
+                         </div>
+                        </div>
+                        <div class="grid_7">
+                          <p class="mar_t_25">
+                           <span class="">
+                             Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo
+                           </span>
+                           Suspendisse sollicitudin velit sed leo pharetra augue nec augue. Nam elit magnandrerit sit amet tincidunt ac viverra sed nulla. 
+                            Donec porta diam eu massa. Quisque diam lorem interdum vitaedapibus ac scelerisque vitae pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Proin ullamcorper urna et felis. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Etiam lacinia feugiat libero, quis sodales metus porta quis. Proin maximus feugiat ipsum id rhoncus. Donec quis dolor eu est sagittis cursus sed eu ex. Suspendisse bibendum dignissim justo. Aliquam vestibulum magna at iaculis eleifend. Sed mattis ligula et sem egestas rutrum. Vestibulum vel ante nec erat fermen<br><br>Curabitur tempus commodo velit, non commodo libero aliquam eu. Suspendisse hendrerit, urna ut convallis auctor, nunc arcu fermentum urna, eleifend vestibulum mauris nunc sit amet velit. Fusce quis massa non nibh pharetra commodo eu vel tortor. Pellentesque dui turpis, ornare at condimentum sit amet, interdum eget turpis. Praesent vitae ipsum maximus, tempus mauris ac, viverra enim. Nullam lorem lectus, venenatis sed porttitor at, cursus quis tellus
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+  </div>
+</section>
+
+
+<!--========================================================
+                          FOOTER
+=========================================================-->
+<footer id="footer">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="grid_3">
+          <div class="privacy-block">
+          <a href="./" class="logo">elementary school</a><br>
+           elementary school &copy; <span id="copyright-year"></span> <a
+                  href="index-6.html">Privacy policy</a>
+          </div>
+        </div>
+        <div class="grid_3 preffix_3">
+        <h3>Contact Us</h3>
+          <address class="">
+            <span class="width1">Freephone: </span>+1 800 559 6580<br>
+            <span class="width1">Telephone: </span>+1 959 603 6035<br>
+            <span class="width1">FAX: </span>+1 504 889 9898<br><br>
+            E-mail: <a href="#"><!--email_off-->mail@demolink.org<!--/email_off--></a>
+          </address>
+        </div>
+        <div class="grid_3">
+        <h3>Locations</h3>
+          <p class="">
+           8901 Marmora Road<br>Glasgow, DO4 89GR.<br><br>Get Directions
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="js/script.js"></script>
+</body><!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N7VWVN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push( {'gtm.start': new Date().getTime(),event:'gtm.js'} );var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-N7VWVN');</script> <!-- End Google Tag Manager -->
+</html>

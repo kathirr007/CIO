@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	compass = require('gulp-compass'),
-	minifyCSS = require('gulp-minify-css'),
+	minifyCSS = require('gulp-clean-css'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	connect = require('gulp-connect'),
@@ -31,19 +31,30 @@ if (env==='development') {
 htmlSources = ['sources/html/*.html'];
 cssSources = ['sources/css/*.css'];
 imageSources = ['sources/images/**/*.*'];
-jsSources = ['sources/js/html5.js',
-			 'sources/js/jquery-1.7.1.min.js',
-			 'sources/js/jquery.hoverIntent.js',
-			 'sources/js/jquery.responsivemenu.js',
-			 'sources/js/jquery.easing.1.3.js',
-			 'sources/js/jquery.equalheights.js',
-			 'sources/js/superfish.js',
-			 'sources/js/slides.min.jquery.js',
-			 'sources/js/forms.js',
-			 'sources/js/slides.js',
-			 'sources/js/slider.min.js',
-			 'sources/js/slides_touch.js',
-			 'sources/js/script.js'
+jsSources = ['sources/js/jquery.js',
+			 'sources/js/html5shiv.js',
+			 // 'sources/js/jquery-migrate-1.2.1.js',
+			 // 'sources/js/jquery.equalheights.js',
+			 // 'js/jquery.tabs.js',
+			 // 'js/isotope-docs.min.js.js',
+			 // 'sources/js/camera.js',
+			 // 'sources/js/touchTouch.jquery.js',
+			 // 'sources/js/TMForm.js',
+			 // 'sources/js/modal.js',
+			 // 'sources/js/greensock/TweenMax.min.js',
+			 // 'sources/js/jquery.cookie.js',
+			 // 'sources/js/device.min.js',
+			 // 'sources/js/tmstickup.js',
+			 // 'sources/js/jquery.easing.1.3.js',
+			 // 'sources/js/jquery.ui.totop.js',
+			 // 'sources/js/jquery.mousewheel.min.js',
+			 // 'sources/js/jquery.simplr.smoothscrool.min.js',
+			 // 'sources/js/jquery.superscrollorama.js',
+			 // 'sources/js/superfish.js',
+			 // 'sources/js/jquery.mobilemenu.js',
+			 // 'sources/js/script.js'
+			 
+			 
 			];
 
 gulp.task('clean', function(){

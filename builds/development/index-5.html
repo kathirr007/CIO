@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contacts</title>
+  <meta charset="utf-8">
+  <meta name = "format-detection" content = "telephone=no" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/contact-form.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <!-- <script src="js/jquery.js"></script>
+  <script src="js/jquery-migrate-1.2.1.js"></script>
+  <script src="js/TMForm.js"></script>
+  <script src="js/modal.js"></script> -->
+    <script src='//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false'></script> 
+
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <div id="ie6-alert" style="width: 100%; text-align:center;">
+    <img src="http://beatie6.frontcube.com/images/ie6.jpg" alt="Upgrade IE 6" width="640" height="344" border="0" usemap="#Map" longdesc="http://die6.frontcube.com" />
+    <map name="Map" id="Map"><area shape="rect" coords="496,201,604,329" href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank" alt="Download Interent Explorer" /><area shape="rect" coords="380,201,488,329" href="http://www.apple.com/safari/download/" target="_blank" alt="Download Apple Safari" /><area shape="rect" coords="268,202,376,330" href="http://www.opera.com/download/" target="_blank" alt="Download Opera" /><area shape="rect" coords="155,202,263,330" href="http://www.mozilla.com/" target="_blank" alt="Download Firefox" />
+      <area shape="rect" coords="35,201,143,329" href="http://www.google.com/chrome" target="_blank" alt="Download Google Chrome" />
+    </map>
+  </div>
+  <![endif]-->
+</head>
+
+<body>
+<!--========================================================
+                          HEADER
+=========================================================-->
+<header id="header">
+  <div id="stuck_container">
+    <div class="container">
+      <div class="row">
+      <div class="grid_12">
+        <h1 class="">
+          <a href="index.html">elementary school<br><span class="">
+            Here learning never ends</span></a>
+        </h1>
+          <nav>
+            <ul class="sf-menu">
+            <li><a href="index.html">Home</a>
+                <ul>
+                  <li><a href="#">About </a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Contact</a>
+                    <ul>
+                      <li><a href="#">About </a></li>
+                      <li><a href="#">News</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Blog</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                </li>
+              <li><a href="index-1.html">About</a></li>
+              <li><a href="index-2.html">Services</a></li>
+              <li><a href="index-3.html">gallery</a></li>
+              <li><a href="index-4.html">Blog</a></li>
+              <li  class="current"><a href="index-5.html">Contact</a></li>
+            </ul>
+            <div class="clearfix"></div>
+          </nav>
+          </div>
+      </div>
+    </div>
+  </div> 
+</header>
+
+<!--========================================================
+                          CONTENT
+=========================================================-->
+<section id="content" class="page5">
+    <div class="container bord_1 perspective">
+      <div class="row mar_t_6 ">
+        <div class="grid_12 bord_1 pad_b_8">
+        <h3 class='s1'>contact info</h3>
+          <div class="pic_bord s2">
+           <div class="content_map">
+              <div class="google-map-api"> 
+                <div id="map-canvas" class="gmap"></div> 
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mar_t_6 pad_b_95 perspective">
+       <div class="grid_3 s4">
+         <h3 >address</h3>
+         
+          <address class="">
+          <em>9870 St Vincent Place,<br>Glasgow, DC 45 Fr 45.</em>
+            <span class="width1">Freephone: </span>+1 800 559 6580<br>
+            <span class="width1">Telephone: </span>+1 959 603 6035<br>
+            <span class="width1">FAX: </span>+1 504 889 9898<br>
+            E-mail: <a href="#"><!--email_off-->mail@demolink.org<!--/email_off--></a>
+          </address>
+       </div>
+    <div class="grid_9">
+     <h3 class='s5'>contact form</h3>
+          <form id="contact-form">
+            <div class="contact-form-loader"></div>
+            <fieldset>
+
+                  <label class="name s55">
+                    <input type="text" name="name" placeholder="Name*:" data-constraints="@Required @JustLetters"/>
+                    <span class="empty-message">*This field is required.</span>
+                  </label>
+
+                  <label class="email s56">
+                    <input type="text" name="email" placeholder="Email*:" value=""
+                           data-constraints="@Required @Email"/>
+                    <span class="empty-message">*This field is required.</span>
+                    <span class="error-message">*This is not a valid email.</span>
+                  </label>
+
+                  <label class="phone s57">
+                    <input type="text" name="phone" placeholder="Phone:" value=""
+                           data-constraints="@JustNumbers"/>
+                    <span class="empty-message">*This field is required.</span>
+                    <span class="error-message">*This is not a valid phone.</span>
+                  </label>
+
+                  <label class="message s58">
+                    <textarea name="message" placeholder="Message:"
+                              data-constraints='@Length(min=20,max=999999)'></textarea>
+                    <span class="empty-message">*This field is required.</span>
+                    <span class="error-message">*The message is too short.</span>
+                  </label>
+
+              <!-- <label class="recaptcha"><span class="empty-message">*This field is required.</span></label> -->
+              <div class="contact-form-buttons s59">
+                <a href="#" data-type="submit" class="btn_4">Send</a>
+              </div>
+            </fieldset>
+          </form>
+          </div>
+    </div>
+    </div>
+
+</section>
+
+
+<!--========================================================
+                          FOOTER
+=========================================================-->
+<footer id="footer">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="grid_3">
+          <div class="privacy-block">
+          <a href="./" class="logo">elementary school</a><br>
+           elementary school &copy; <span id="copyright-year"></span> <a
+                  href="index-6.html">Privacy policy</a>
+          </div>
+        </div>
+        <div class="grid_3 preffix_3">
+        <h3>Contact Us</h3>
+          <address class="">
+            <span class="width1">Freephone: </span>+1 800 559 6580<br>
+            <span class="width1">Telephone: </span>+1 959 603 6035<br>
+            <span class="width1">FAX: </span>+1 504 889 9898<br><br>
+            E-mail: <a href="#"><!--email_off-->mail@demolink.org<!--/email_off--></a>
+          </address>
+        </div>
+        <div class="grid_3">
+        <h3>Locations</h3>
+          <p class="">
+           8901 Marmora Road<br>Glasgow, DO4 89GR.<br><br>Get Directions
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal fade response-message">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        You message has been sent! We will be in touch soon.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script type="text/javascript"> 
+          google_api_map_init(); 
+          function google_api_map_init(){ 
+            var map; 
+            var coordData = new google.maps.LatLng(parseFloat(40.646197), parseFloat(-73.9724068,14)); 
+            var markCoord1 = new google.maps.LatLng(parseFloat(40.643180), parseFloat(-73.9874068,14)); 
+             var markCoord2 = new google.maps.LatLng(parseFloat(40.6422180), parseFloat(-73.9784068,14)); 
+             var markCoord3 = new google.maps.LatLng(parseFloat(40.6482180), parseFloat(-73.9724068,14)); 
+             var markCoord4 = new google.maps.LatLng(parseFloat(40.6442180), parseFloat(-73.9664068,14)); 
+             var markCoord5 = new google.maps.LatLng(parseFloat(40.6379180), parseFloat(-73.9552068,14)); 
+            var marker; 
+ 
+            var styleArray = [
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "saturation": 43
+            },
+            {
+                "lightness": -11
+            },
+            {
+                "hue": "#0088ff"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "hue": "#ff0000"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 99
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#808080"
+            },
+            {
+                "lightness": 54
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ece2d9"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ccdca1"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#767676"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#EBE5E0"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+  ]
+             
+            var markerIcon = { 
+                url: "images/gmap_marker.png", 
+                size: new google.maps.Size(42, 65), 
+                origin: new google.maps.Point(0,0), 
+                anchor: new google.maps.Point(-180, 50) 
+            }; 
+            
+            function initialize() { 
+              var mapOptions = { 
+                zoom: 14, 
+                center: coordData, 
+                scrollwheel: false, 
+                styles: styleArray 
+              } 
+               
+              var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); 
+              marker = new google.maps.Marker({ 
+                map:map, 
+                position: markCoord1, 
+                icon: markerIcon
+              }); 
+
+
+            google.maps.event.addDomListener(window, 'resize', function() {
+
+              map.setCenter(coordData);
+
+              var center = map.getCenter();
+            });
+          }
+
+            google.maps.event.addDomListener(window, "load", initialize); 
+
+          } 
+
+
+      </script>
+</body><!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N7VWVN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push( {'gtm.start': new Date().getTime(),event:'gtm.js'} );var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-N7VWVN');</script> <!-- End Google Tag Manager -->
+</html>
