@@ -8,6 +8,8 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	pngcrush = require('imagemin-pngcrush'),
 	gulpif = require('gulp-if'),
+	//isotope = require('isotope-layout'),
+	//masonry = require('masonry-layout'),
 	minifyHTML = require('gulp-minify-html'),
 	browserify = require('gulp-browserify'),
 	del = require('del');
@@ -31,11 +33,16 @@ if (env==='development') {
 htmlSources = ['sources/html/*.html'];
 cssSources = ['sources/css/*.css'];
 imageSources = ['sources/images/**/*.*'];
-jsSources = ['sources/js/jquery-1.7.1.min.js',
-			 'sources/js/jquery-migrate-1.4.1.min.js',
+jsSources = ['sources/js/jquery-1.9.1.js',
+			 'sources/js/jquery-migrate-1.2.1.js',
+			 // 'sources/js/jquery-migrate-1.4.1.min.js',
 			 'sources/js/html5shiv.js',
 			 'sources/js/jquery.equalheights.js',
 			 'sources/js/camera.js',
+			 //'sources/js/isotope-docs.min.js',
+			 //'sources/js/isotope.pkgd.min.js',
+			 //'sources/js/masonry.pkgd.js',
+			 'sources/js/jquery.tabs.js',
 			 'sources/js/touchTouch.jquery.js',
 			 'sources/js/greensock/TweenMax.min.js',
 			 'sources/js/jquery.cookie.js',
@@ -48,13 +55,14 @@ jsSources = ['sources/js/jquery-1.7.1.min.js',
 			 'sources/js/jquery.superscrollorama.js',
 			 'sources/js/superfish.js',
 			 'sources/js/jquery.mobilemenu.js',
-			 'js/jquery.tabs.js',
-			 'js/isotope-docs.min.js.js',
 			 'sources/js/TMForm.js',
 			 'sources/js/modal.js',
 			 'sources/js/script.js'
 			 
 			];
+tempJsDir = 'sources/js/temp';		
+jsSources2 = ['sources/js/isotope.pkgd.min.js'];
+
 
 gulp.task('clean', function(){
 	del([outputDir + '*']);
@@ -93,6 +101,18 @@ gulp.task('js', function(){
 	gulp.src(jsSources)
 	.pipe(concat('script.js'))
 	.pipe(browserify())
+	//.pipe(gulp.src(['sources/js/scripts.js', 'sources/js/isotope.pkgd.min.js']))
+	//.pipe(concat('final.js'))
+	.pipe(gulpif(env==='production', uglify()))
+	.pipe(gulp.dest(outputDir + 'js'))
+	.pipe(connect.reload())
+});
+gulp.task('js2', function(){
+	gulp.src(jsSources2)
+	.pipe(concat('filtering.js'))
+	// .pipe(browserify({
+ //            ignore: ['isotope.pkgd.min']
+ //        }))
 	.pipe(gulpif(env==='production', uglify()))
 	.pipe(gulp.dest(outputDir + 'js'))
 	.pipe(connect.reload())
@@ -109,7 +129,8 @@ gulp.task('watch', function(){
 	gulp.watch(htmlSources, ['html']);
 	gulp.watch(cssSources, ['css']);
 	gulp.watch(jsSources, ['js']);
+	gulp.watch(jsSources2, ['js2']);
 	gulp.watch(imageSources, ['images']);
 });
 
-gulp.task('default', ['html', 'images', 'js', 'connect', 'watch', 'css']);
+gulp.task('default', ['html', 'images', 'js', 'js2', 'connect', 'watch', 'css']);
