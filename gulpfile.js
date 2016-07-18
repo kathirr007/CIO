@@ -12,6 +12,7 @@ var gulp = require('gulp'),
 	//masonry = require('masonry-layout'),
 	minifyHTML = require('gulp-minify-html'),
 	browserify = require('gulp-browserify'),
+	phpminify = require('gulp-php-minify'),
 	del = require('del');
 
 var env,
@@ -34,8 +35,8 @@ htmlSources = ['sources/html/*.html'];
 cssSources = ['sources/css/*.css'];
 imageSources = ['sources/images/**/*.*'];
 jsSources = ['sources/js/jquery-1.9.1.js',
-			 'sources/js/jquery-migrate-1.2.1.js',
-			 // 'sources/js/jquery-migrate-1.4.1.min.js',
+			 //'sources/js/jquery-migrate-1.2.1.js',
+			 'sources/js/jquery-migrate-1.4.1.min.js',
 			 'sources/js/html5shiv.js',
 			 'sources/js/jquery.equalheights.js',
 			 'sources/js/camera.js',
@@ -62,6 +63,7 @@ jsSources = ['sources/js/jquery-1.9.1.js',
 			];
 tempJsDir = 'sources/js/temp';		
 jsSources2 = ['sources/js/isotope.pkgd.min.js'];
+contactForm = ['sources/forms/*.php'];
 
 
 gulp.task('clean', function(){
@@ -81,7 +83,7 @@ gulp.task('html', function(){
 gulp.task('css', function(){
 	gulp.src(cssSources)
 	.pipe(concat('style.css'))
-	.pipe(gulpif(env==='production', minifyCSS()))
+	.pipe(gulpif(env==='production', minifyCSS({processImport: false})))
 	.pipe(gulp.dest(outputDir + 'css'))
 	.pipe(connect.reload())
 });
@@ -118,6 +120,13 @@ gulp.task('js2', function(){
 	.pipe(connect.reload())
 });
 
+gulp.task('forms', function(){
+	gulp.src(contactForm)
+	.pipe(gulpif(env==='production', phpminify()))
+	.pipe(gulp.dest(outputDir + 'contactForm'))
+	.pipe(connect.reload())
+});
+
 gulp.task('connect', function(){
 	connect.server({
 		root: outputDir,
@@ -130,7 +139,8 @@ gulp.task('watch', function(){
 	gulp.watch(cssSources, ['css']);
 	gulp.watch(jsSources, ['js']);
 	gulp.watch(jsSources2, ['js2']);
+	gulp.watch(contactForm, ['forms']);
 	gulp.watch(imageSources, ['images']);
 });
 
-gulp.task('default', ['html', 'images', 'js', 'js2', 'connect', 'watch', 'css']);
+gulp.task('default', ['html', 'images', 'js', 'js2', 'forms', 'connect', 'watch', 'css']);
