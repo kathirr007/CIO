@@ -37,6 +37,7 @@ imageSources = ['sources/images/**/*.*'];
 jsSources = ['sources/js/jquery-1.9.1.js',
 			 //'sources/js/jquery-migrate-1.2.1.js',
 			 'sources/js/jquery-migrate-1.4.1.min.js',
+			 'sources/js/font-awesome-4.6.x.js',
 			 'sources/js/html5shiv.js',
 			 'sources/js/jquery.equalheights.js',
 			 'sources/js/camera.js',
